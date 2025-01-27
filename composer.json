@@ -1,0 +1,27 @@
+{
+    "name": "interworks/sigmarest",
+    "description": "This package allows simple REST API communication with Sigma.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "InterWorks\\SigmaREST\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "InterWorks\\SigmaREST\\SigmaRESTServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Justin Lyons",
+            "email": "justin.lyons@interworks.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    }
+}
