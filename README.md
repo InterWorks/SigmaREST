@@ -1,5 +1,10 @@
 # Sigma REST API for Laravel
 
+<a href="https://github.com/InterWorks/SigmaREST/actions"><img alt="GitHub Workflow Status (Pest)" src="https://img.shields.io/github/actions/workflow/status/InterWorks/SigmaREST/pest.yml?branch=main&label=Pest&style=round-square"></a>
+<a href="https://github.com/InterWorks/SigmaREST/actions"><img alt="GitHub Workflow Status (PHPStan)" src="https://img.shields.io/github/actions/workflow/status/InterWorks/SigmaREST/phpstan.yml?branch=main&label=PHPStan&style=round-square"></a>
+<a href="https://packagist.org/packages/InterWorks/SigmaREST"><img alt="Latest Version" src="https://img.shields.io/packagist/v/InterWorks/SigmaREST"></a>
+<a href="https://packagist.org/packages/InterWorks/SigmaREST"><img alt="License" src="https://img.shields.io/github/license/InterWorks/SigmaREST"></a>
+
 This is a simple API for calling REST API's against Sigma. It handles authentication for you so install, add the environment variables, and start making REST API calls!
 
 ## Getting Started
