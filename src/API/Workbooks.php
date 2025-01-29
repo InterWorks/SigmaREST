@@ -30,7 +30,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -58,7 +58,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -85,7 +85,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -111,7 +111,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -138,7 +138,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -165,7 +165,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -191,7 +191,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -374,7 +374,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -402,7 +402,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -429,7 +429,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -484,7 +484,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -510,7 +510,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -534,7 +534,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -561,7 +561,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -583,7 +583,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -606,7 +606,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -632,7 +632,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -658,7 +658,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -685,7 +685,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -708,7 +708,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -731,7 +731,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -757,7 +757,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -784,7 +784,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -810,7 +810,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -837,7 +837,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -863,7 +863,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -888,7 +888,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -914,7 +914,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -936,7 +936,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -962,7 +962,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -988,7 +988,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -1014,7 +1014,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -1068,7 +1068,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -1122,7 +1122,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -1155,7 +1155,7 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -1183,6 +1183,6 @@ trait Workbooks
         // Return the response or the data
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 }

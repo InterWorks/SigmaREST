@@ -51,7 +51,7 @@ class SigmaREST
     /**
      * The access token for the Sigma API.
      *
-     * @var string
+     * @var string|null
      */
     private $token;
 
@@ -70,11 +70,11 @@ class SigmaREST
     public function __construct(bool $returnResponseObject = false)
     {
         // Set URL property
-        $this->url = config('sigmarest.url');
+        $this->url = is_string(config('sigmarest.url')) ? config('sigmarest.url') : '';
 
         // Validate that the URL is set
-        if (is_null($this->url)) {
-            throw new Exception(
+        if (empty($this->url)) {
+            throw new \Exception(
                 'The Sigma URL (SIGMA_API_URL) is not set in the env file.'
                 . ' Find this in the Sigma application > Administration > Site labeled "Cloud".'
             );
@@ -92,11 +92,11 @@ class SigmaREST
      *
      * @return void
      */
-    private function _authenticate(): void
+    protected function _authenticate(): void
     {
         // Check if the access token is cached
         if (cache()->has('sigma_access_token')) {
-            $this->token = cache('sigma_access_token');
+            $this->token = is_string(cache('sigma_access_token')) ? cache('sigma_access_token') : '';
             return;
         }
 
@@ -104,9 +104,14 @@ class SigmaREST
         $tokenResponse = $this->getAccessToken();
 
         // Set the access token
-        $this->token = $this->returnResponseObject
-            ? $tokenResponse->json()['access_token']
-            : $tokenResponse;
+        if ($tokenResponse instanceof Response) {
+            /** @var array<string, mixed> $jsonData */
+            $jsonData = $tokenResponse->json();
+            $token    = is_string($jsonData['access_token']) ? $jsonData['access_token'] : '';
+        } else {
+            $token = $tokenResponse;
+        }
+        $this->token = $token;
 
         // Cache the access token for one hour
         cache(['sigma_access_token' => $this->token], 60);
@@ -115,11 +120,13 @@ class SigmaREST
     /**
      * Calls a REST API.
      *
-     * @throws Exception
+     * @throws \Exception
      *
      * @param string               $url
      * @param array<string, mixed> $args
+     * @param array<string, mixed> $headers
      * @param string               $method
+     * @param bool                 $asForm
      *
      * @return Response
      */
@@ -156,6 +163,7 @@ class SigmaREST
         $requestFunction = strtolower($method);
 
         // Make the call
+        /** @var \Illuminate\Http\Client\Response $response */
         $response = $call->$requestFunction($url, $args);
 
         // Catch errors
@@ -189,11 +197,21 @@ class SigmaREST
     }
 
     /**
+     * Get the return response object property.
+     *
+     * @return bool
+     */
+    public function getReturnResponseObject(): bool
+    {
+        return $this->returnResponseObject;
+    }
+
+    /**
      * Get the access token for the Sigma API instance.
      *
-     * @return string
+     * @return string|null
      */
-    public function getToken(): string
+    public function getToken(): string|null
     {
         return $this->token;
     }

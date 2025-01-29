@@ -8,6 +8,11 @@
             "InterWorks\\SigmaREST\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "InterWorks\\SigmaREST\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -23,5 +28,15 @@
     ],
     "require": {
         "php": "^8.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.9",
+        "pestphp/pest": "^3.7",
+        "phpstan/phpstan": "^2.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }

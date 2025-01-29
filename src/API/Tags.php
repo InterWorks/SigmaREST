@@ -29,7 +29,7 @@ trait Tags
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -79,7 +79,7 @@ trait Tags
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -105,6 +105,6 @@ trait Tags
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 }

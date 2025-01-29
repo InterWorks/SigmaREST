@@ -29,7 +29,7 @@ trait UserAttributes
         // Return the response or the JSON-decoded response
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -103,7 +103,7 @@ trait UserAttributes
         // Return the response or the JSON-decoded response
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -128,7 +128,7 @@ trait UserAttributes
         // Return the response or the JSON-decoded response
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -154,7 +154,7 @@ trait UserAttributes
         // Return the response or the JSON-decoded response
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -180,7 +180,7 @@ trait UserAttributes
         // Return the response or the JSON-decoded response
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**

@@ -10,8 +10,8 @@ trait Datasets
      * Grant permissions on a dataset in Sigma.
      * https://help.sigmacomputing.com/reference/createdatasetgrant
      *
-     * @param string $datasetID The ID of the dataset to grant permissions on.
-     * @param array  $args      The arguments to pass to the API.
+     * @param string               $datasetID The ID of the dataset to grant permissions on.
+     * @param array<string, mixed> $args      The arguments to pass to the API.
      *
      * @return bool|Response
      */
@@ -78,7 +78,7 @@ trait Datasets
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -104,7 +104,7 @@ trait Datasets
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -130,7 +130,7 @@ trait Datasets
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -155,7 +155,7 @@ trait Datasets
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -177,7 +177,7 @@ trait Datasets
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 
     /**
@@ -202,6 +202,6 @@ trait Datasets
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 }

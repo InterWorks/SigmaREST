@@ -2,7 +2,7 @@
 
 namespace InterWorks\SigmaREST\API;
 
-use Illuminate\Http\Response;
+use Illuminate\Http\Client\Response;
 
 trait Authentication
 {
@@ -11,12 +11,14 @@ trait Authentication
      *
      * @throws \Exception
      *
-     * @return mixed[]|Response
+     * @return string|Response
      */
     public function getAccessToken(): mixed
     {
         // Check if we have the client ID and secret
-        if (!config('sigmarest.client-id') || !config('sigmarest.client-secret')) {
+        $clientID     = gettype(config('sigmarest.client-id')) == 'string' ? config('sigmarest.client-id') : '';
+        $clientSecret = gettype(config('sigmarest.client-secret')) == 'string' ? config('sigmarest.client-secret') : '';
+        if (empty($clientID) || empty($clientSecret)) {
             throw new \Exception(
                 'Client ID (SIGMA_CLIENT_ID) and secret (SIGMA_CLIENT_SECRET) are not set in env file.'
                 . ' If you don\'t have these values, check out this doc: '
@@ -34,10 +36,7 @@ trait Authentication
 
         // Prepare headers
         $headers = [
-            'Authorization' => 'Basic '
-                . base64_encode(
-                    config('sigmarest.client-id') . ':' . config('sigmarest.client-secret')
-                ),
+            'Authorization' => 'Basic ' . base64_encode("$clientID:$clientSecret"),
             'Content-Type'  => 'application/x-www-form-urlencoded',
         ];
 
@@ -51,6 +50,7 @@ trait Authentication
         );
 
         // Transform response to an array
+        /** @var array<string, mixed> $responseArr */
         $responseArr = $response->json();
 
         // Check if the token is present
@@ -61,7 +61,7 @@ trait Authentication
         // Return the access token
         return $this->returnResponseObject
             ? $response
-            : $responseArr['access_token'];
+            : (is_string($responseArr['access_token']) ? $responseArr['access_token'] : '');
     }
 
     /**
@@ -81,6 +81,6 @@ trait Authentication
         // Return the response or the data as an array
         return $this->returnResponseObject
             ? $response
-            : $response->json();
+            : (array) $response->json();
     }
 }
