@@ -19,6 +19,7 @@ use InterWorks\SigmaREST\API\Translations;
 use InterWorks\SigmaREST\API\UserAttributes;
 use InterWorks\SigmaREST\API\Workbooks;
 use InterWorks\SigmaREST\API\Workspaces;
+use InterWorks\SigmaREST\Exceptions\SigmaConfigurationException;
 
 class SigmaREST
 {
@@ -74,7 +75,7 @@ class SigmaREST
 
         // Validate that the URL is set
         if (empty($this->url)) {
-            throw new \Exception(
+            throw new SigmaConfigurationException(
                 'The Sigma URL (SIGMA_API_URL) is not set in the env file.'
                 . ' Find this in the Sigma application > Administration > Site labeled "Cloud".'
             );
