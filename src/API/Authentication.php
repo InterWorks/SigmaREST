@@ -3,6 +3,8 @@
 namespace InterWorks\SigmaREST\API;
 
 use Illuminate\Http\Client\Response;
+use InterWorks\SigmaREST\Exceptions\SigmaAuthenticationException;
+use InterWorks\SigmaREST\Exceptions\SigmaConfigurationException;
 
 trait Authentication
 {
@@ -19,7 +21,7 @@ trait Authentication
         $clientID     = gettype(config('sigmarest.client-id')) == 'string' ? config('sigmarest.client-id') : '';
         $clientSecret = gettype(config('sigmarest.client-secret')) == 'string' ? config('sigmarest.client-secret') : '';
         if (empty($clientID) || empty($clientSecret)) {
-            throw new \Exception(
+            throw new SigmaConfigurationException(
                 'Client ID (SIGMA_CLIENT_ID) and secret (SIGMA_CLIENT_SECRET) are not set in env file.'
                 . ' If you don\'t have these values, check out this doc: '
                 . 'https://help.sigmacomputing.com/reference/generate-client-credentials'
@@ -55,7 +57,7 @@ trait Authentication
 
         // Check if the token is present
         if (!isset($responseArr['access_token'])) {
-            throw new \Exception('Access token not found in response: ' . $response->body());
+            throw new SigmaAuthenticationException('Access token not found in response: ' . $response->body());
         }
 
         // Return the access token
