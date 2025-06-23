@@ -42,14 +42,19 @@ trait Authentication
             'Content-Type'  => 'application/x-www-form-urlencoded',
         ];
 
-        // Make the call
-        $response = $this->call(
-            url    : $url,
-            args   : $args,
-            headers: $headers,
-            method : 'POST',
-            asForm : true
-        );
+        try {
+            // Make the call
+            $response = $this->call(
+                url    : $url,
+                args   : $args,
+                headers: $headers,
+                method : 'POST',
+                asForm : true
+            );
+        } catch (\Exception $e) {
+            // If the call fails, throw a SigmaAuthenticationException instead of a generic Exception
+            throw new SigmaAuthenticationException('Authentication failed: ' . $e->getMessage(), $e->getCode(), $e);
+        }
 
         // Transform response to an array
         /** @var array<string, mixed> $responseArr */
