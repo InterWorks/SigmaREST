@@ -37,3 +37,19 @@ test('can get currently authenticated REST user', function () {
     // Clean up Mockery expectations
     Mockery::close();
 });
+
+test('throws SigmaAuthenticationException when authentication fails', function () {
+    // Create a mock for the class that will simulate a failed authentication
+    $mock = SigmaRESTMock::mockWithFailedCall(
+        status: 401,
+        body: '{"error": "invalid_credentials"}',
+        url: 'auth/token'
+    );
+
+    // Expect the specific exception to be thrown
+    expect(fn() => $mock->getAccessToken())
+        ->toThrow(\InterWorks\SigmaREST\Exceptions\SigmaAuthenticationException::class);
+
+    // Clean up Mockery expectations
+    Mockery::close();
+});
