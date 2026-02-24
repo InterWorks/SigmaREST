@@ -11,7 +11,7 @@ This is a simple API for calling REST API's against Sigma. It handles authentica
 
 ### Installation
 
-Requires PHP >= 8.0.
+Requires PHP >= 8.1.
 
 ```shell
 composer require interworks/sigmarest
