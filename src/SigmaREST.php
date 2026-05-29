@@ -114,8 +114,12 @@ class SigmaREST
         }
         $this->token = $token;
 
-        // Cache the access token for one hour
-        cache(['sigma_access_token' => $this->token], 60);
+        // Cache the access token for one hour.
+        // Use cache()->put() (positional TTL) rather than the array-set form cache([...], 60):
+        // under Laravel 12 the array-set helper calls app('cache')->put(key, value, ttl: $ttl)
+        // with a NAMED ttl argument, which CacheManager::__call forwards via ...$parameters and
+        // throws "Unknown named parameter $ttl" on stores whose put() does not name it $ttl.
+        cache()->put('sigma_access_token', $this->token, 60);
     }
 
     /**
