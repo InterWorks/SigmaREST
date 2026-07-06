@@ -30,9 +30,9 @@
         "php": "^8.3"
     },
     "require-dev": {
-        "orchestra/testbench": "^10.0",
-        "pestphp/pest": "^3.7",
-        "phpstan/phpstan": "^2.1"
+        "orchestra/testbench": "10.11.0",
+        "pestphp/pest": "3.8.6",
+        "phpstan/phpstan": "2.2.2"
     },
     "config": {
         "allow-plugins": {
